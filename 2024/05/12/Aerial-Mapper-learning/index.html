@@ -28,7 +28,7 @@
 <meta property="og:description" content="AERIAL MAPPER论文12345   Author &#x3D; &#123;T. Hinzmann, J. L. Schönberger, M. Pollefeys, and R. Siegwart&#125;,   Title &#x3D; &#123;Mapping on the Fly: Real-time 3D Dense Reconstruction, Digital Surface Map an">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-05-12T02:47:10.000Z">
-<meta property="article:modified_time" content="2024-05-14T06:32:32.305Z">
+<meta property="article:modified_time" content="2024-05-14T06:40:12.194Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -76,7 +76,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-12T02:47:10.000Z">2024-05-12</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-14T06:32:32.305Z">2024-05-14</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-12T02:47:10.000Z">2024-05-12</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-14T06:40:12.194Z">2024-05-14</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -119,7 +119,7 @@
 <p>3 Methodology<br>The methodology section follows the data flow illustrated in Fig. 2: Sec. 3.1 presents the smoothing-based GPS-IMU-Vision fusion. Given the input images and corresponding optimized camera poses, a dense georeferenced point cloud can be generated using planar rectification, as demonstrated in Sec. 3.2. Sec. 3.3 presents how this dense point cloud can be used to generate a DSM by employing inverse distance weighting (IDW). Finally, Sec. 3.4 presents our approaches to generate an orthomosaic from a stream of images, optimized camera poses, and DSM using (a) forward projection and (b) backward projection.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 方法论</span><br><span class="line">方法论部分遵循图2所示的数据流程：第3.1节介绍了基于平滑的GPS-IMU-Vision融合。给定输入图像和相应的优化摄像机姿态，可以使用平面矫正方法生成密集的地理参考点云，如第3.2节所示。第3.3节介绍了如何利用这个密集的点云来通过逆距离加权法（IDW）生成数字地表模型（DSM）。最后，第3.4节介绍了我们从一系列图像、优化的摄像机姿态和DSM中生成正射图的方法，使用了（a）正向投影和（b）反向投影。</span><br></pre></td></tr></table></figure>
 
-<p>3.1 Multi-Sensor Fusion<br>In this section, we present the core elements of our proposed multi-sensor fusion framework. We distinguish three coordinate systems: the global frame <code>\zeta</code>, the camera frame FC, and the body frame FB. To avoid unnecessary conversions due to the vision-based fusion, we choose the Universal Transverse Mercator (UTM) coordinate system where pGB expresses easting, northing, and elevation. We seek to estimate the robot states xR as well as the set of landmarks xL. We define the robot state as: xR :&#x3D;<br><br>pG<br>B qG<br>B vG<br>B ba bg<br><br>where the orientation, position and velocity of the<br>body frame expressed in global coordinates are denoted with qG<br>B , pG<br>B and vG<br>B . The<br>remaining state vector consists of accelerometer bias ba and gyroscope bias bg.dwd</p>
+<p>3.1 Multi-Sensor Fusion<br>In this section, we present the core elements of our proposed multi-sensor fusion framework. We distinguish three coordinate systems: the global frame …\zeta…<br>$$<br>\zeta<br>$$<br>, the camera frame FC, and the body frame FB. To avoid unnecessary conversions due to the vision-based fusion, we choose the Universal Transverse Mercator (UTM) coordinate system where pGB expresses easting, northing, and elevation. We seek to estimate the robot states xR as well as the set of landmarks xL. We define the robot state as: xR :&#x3D;<br><br>pG<br>B qG<br>B vG<br>B ba bg<br><br>where the orientation, position and velocity of the<br>body frame expressed in global coordinates are denoted with qG<br>B , pG<br>B and vG<br>B . The<br>remaining state vector consists of accelerometer bias ba and gyroscope bias bg.dwd</p>
 <p>3.1 多传感器融合<br>在这一部分，我们介绍了我们提出的多传感器融合框架的核心元素。我们区分三个坐标系：全局坐标系FG，相机坐标系FC和机体坐标系FB。为了避免由于基于视觉的融合而产生不必要的转换，我们选择了通用横向墨卡托（UTM）坐标系，其中pGB表示东坐标、北坐标和高程。我们试图估计机器人状态xR以及地标集合xL。我们将机器人状态定义为：xR :&#x3D;[ pGB qGB vGB ba bg ] 其中，用qGB、pGB和vGB表示在全局坐标系中表达的机体坐标系的方向、位置和速度。其余的状态向量由加速度计偏置ba和陀螺仪偏置bg组成。</p>
 <p>3.1.1 Vision Front-End<br>FAST features [15] are extracted from every input image and tracked from frame to frame using KLT with subpixel refinement. To speed up the tracking process and to avoid outliers, we use the gyroscope of the IMU to predict the location of the pixel in the subsequent image. Furthermore, we employ feature bucketing to guarantee uniformly distributed features across the image for improved vision-based motion estimation. </p>
 
